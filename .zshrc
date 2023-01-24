@@ -117,10 +117,14 @@ time=`date "+%D %T"`
 condition=$(curl -sX GET 'https://api.weatherapi.com/v1/current.json?key=c97b2e7e2fc44f3aad0143136221712&q=Larkhall&aqi=no' | jq -r '.current.condition.text')
 temp="$(curl -sX GET 'https://api.weatherapi.com/v1/current.json?key=c97b2e7e2fc44f3aad0143136221712&q=Larkhall&aqi=no' | jq -r '.current.temp_c' )°C"
 weather="$condition $temp"
+news=$(sh /home/rgilluley/Development/API/NewsAPI/getLatestHeadline.sh)
 
-inisial="\e[32m$time\e[0m\n$weather"
+inisial="\e[32m$time\e[0m $weather\n$news\n"
 echo $inisial
-
 
 bindkey -v
 
+# Alias's
+alias wt="~/Development/Bash/WebTemplate/create_web_template.sh"
+alias mu="~/Development/Bash/MpvLists/musicStarter" 
+alias st="brave-browser https://127.0.0.1:8384/#"
