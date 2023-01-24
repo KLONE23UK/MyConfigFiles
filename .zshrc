@@ -117,7 +117,7 @@ time=`date "+%D %T"`
 condition=$(curl -sX GET 'https://api.weatherapi.com/v1/current.json?key=c97b2e7e2fc44f3aad0143136221712&q=Larkhall&aqi=no' | jq -r '.current.condition.text')
 temp="$(curl -sX GET 'https://api.weatherapi.com/v1/current.json?key=c97b2e7e2fc44f3aad0143136221712&q=Larkhall&aqi=no' | jq -r '.current.temp_c' )°C"
 weather="$condition $temp"
-news=$(sh /home/rgilluley/Development/API/NewsAPI/getLatestHeadline.sh)
+news=$(sh /home/rgilluley/Development/API/NewsAPI/getLatestHeadline.sh) # requires Supplamentery directory with getLatestHeadline.sh script to work
 
 inisial="\e[32m$time\e[0m $weather\n$news\n"
 echo $inisial
