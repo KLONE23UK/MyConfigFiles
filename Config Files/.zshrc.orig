@@ -14,7 +14,7 @@ zstyle ':omz:update' mode auto
 # Pasting Fix
 DISABLE_MAGIC_FUNCTIONS="true"
 
-# Standered Auto complete
+#**Unsure**
 autoload -Uz compinit
 compinit
 _comp_options+=(globdots)
@@ -39,7 +39,7 @@ time=`date "+%D %T"`
 condition=$(curl -sX GET 'https://api.weatherapi.com/v1/current.json?key=c97b2e7e2fc44f3aad0143136221712&q=Larkhall&aqi=no' | jq -r '.current.condition.text')
 temp="$(curl -sX GET 'https://api.weatherapi.com/v1/current.json?key=c97b2e7e2fc44f3aad0143136221712&q=Larkhall&aqi=no' | jq -r '.current.temp_c' )°C"
 weather="$condition $temp"
-news=$(sh /home/rgilluley/Development/API/NewsAPI/getLatestHeadline.sh)
+news=$(sh /home/rgilluley/Development/API/NewsAPI/getLatestHeadline.sh) # Requires the Supplamentary/getLatestHeadline.sh file.
 
 # Combine and Print
 inisial="\e[32m$time\e[0m $weather\n$news\n"
@@ -51,42 +51,17 @@ export EDITOR='vim'
 
 
 ### ALIAS'S ###
-
-# General
+alias wt="~/Development/Bash/WebTemplate/create_web_template.sh"
+alias mu="~/Development/Bash/MpvLists/musicStarter" 
+alias st="brave-browser https://127.0.0.1:8384/#"
+alias t="sudo mount /dev/sda1 ~/MOUNT/"
 alias shut="sudo shutdown now"
 alias reboot="sudo reboot now"
+alias update="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade"
 alias cls="clear"
 
-# Common
-# Fully Update System
-alias update="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade"
-# Compare differences in two files side by side
-alias diffy="diff -y $1 $2"
-# Count the number of files in the current directory
-alias ct="ls -l | wc -l"
-# Watch number of files/directories in the current directory
-alias wct="watch 'ls -l | wc -l'"
-# List size of directories in the current directory sorted by largest size
-alias dua="du -sh * | sort -rh | awk 'BEGIN {print \"SIZE   \",\"NAME\" \"\n---------------------}\"}; {print}'"
-
-# Corrections
-alias sl="ls"
-
-# ODIN Spacific
-# Run the create_web_template.sh script in the current directory
-alias wt="~/Development/Bash/WebTemplate/create_web_template.sh"
-# Run musicStarter script
-alias mu="~/Development/Bash/MpvLists/musicStarter" 
-# Open SyncThing Web Gui
-alias st="brave-browser https://127.0.0.1:8384/#"
-# Mount the Jellyfin HDD
-alias t="sudo mount /dev/sda1 ~/MOUNT/"
-
-
 ### FUNCTIONS ###
-# function_test1 () {
-#    
-# }
+
 
 
 ### END ###
