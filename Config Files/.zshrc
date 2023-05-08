@@ -56,6 +56,12 @@ export EDITOR='vim'
 alias shut="sudo shutdown now"
 alias reboot="sudo reboot now"
 alias cls="clear"
+alias trace="traceroute $1"
+# Source .zshrc
+alias sr="cls;source ~/.zshrc"
+# Print private ip address
+alias mip="hostname -I | awk '{print \$1}'"
+alias bat="batcat $1"
 
 # Common
 # Fully Update System
@@ -68,9 +74,12 @@ alias ct="ls -l | wc -l"
 alias wct="watch 'ls -l | wc -l'"
 # List size of directories in the current directory sorted by largest size
 alias dua="du -sh * | sort -rh | awk 'BEGIN {print \"SIZE   \",\"NAME\" \"\n---------------------}\"}; {print}'"
+# Print only the time
+alias nt="date | awk '{print \$4}'"
 
 # Corrections
 alias sl="ls"
+alias dc="cd"
 
 # ODIN Spacific
 # Run the create_web_template.sh script in the current directory
@@ -96,3 +105,5 @@ source $ZSH/oh-my-zsh.sh
 
 # Set Vim mode
 bindkey -v
+# Enable reverse history search with vim mode enabled
+bindkey '^R' history-incremental-search-backward
