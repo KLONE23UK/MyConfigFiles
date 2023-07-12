@@ -1,10 +1,12 @@
 ##### Alactrity.yml #####
 ##### Ryan Gilluley #####
 
-
 window:
   startup_mode: Fullscreen
   opacity: 0.8
+padding:
+  x: 105
+  y: 105
 font:
   normal:
     family: Hack

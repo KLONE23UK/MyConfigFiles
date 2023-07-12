@@ -82,7 +82,10 @@ alias st="brave-browser https://127.0.0.1:8384/#"
 alias t="sudo mount /dev/sda1 ~/MOUNT/OrangeHD/"
 # Start matrix show
 alias mat="cmatrix -C blue -au 10"
-
+# Ruby shortcut
+alias r="ruby"
+# Python3 shortcut
+alias p="python3"
 
 ### FUNCTIONS ###
 
@@ -104,7 +107,7 @@ function initialMessage () {
 
 ### END ###
 
-initialMessage
+# initialMessage
 
 # Source
 source $ZSH/oh-my-zsh.sh
