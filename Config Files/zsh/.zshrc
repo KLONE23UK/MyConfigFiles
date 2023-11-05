@@ -3,7 +3,10 @@
 
 ### GENERAL ###
 
+# Exports
 export ZSH="$HOME/.oh-my-zsh"
+export TERM="xterm-256color"
+export EDITOR="vim"
 
 # Theme
 ZSH_THEME="eastwood"
@@ -45,12 +48,13 @@ export BAT_THEME="Sublime Snazzy"
 alias shut="sudo shutdown now"
 alias reboot="sudo reboot now"
 alias cls="clear"
+alias grep="grep --color=auto"
 alias trace="traceroute $1"
 # Source .zshrc
 alias sr="cls;source ~/.zshrc;echo \"ZSH Reloaded!\""
 # Print private ip address
 alias mip="hostname -I | awk '{print \$1}'"
-alias bat="batcat $1"
+alias cat="batcat -p --paging=never $1"
 
 # Common
 # Fully Update System
@@ -86,24 +90,29 @@ alias mat="cmatrix -C blue -au 10"
 alias r="ruby"
 # Python3 shortcut
 alias p="python3"
+# Run main.py
+alias pm="python3 main.py"
+# Run nvim
+alias vim="nvim"
+# Run vim
+alias ogv="vim"
 
 ### FUNCTIONS ###
 
-function initialMessage () {
-    # Time
-    time=`date "+%D %T"`
-
-    # Weather
-    condition=$(curl -sX GET 'https://api.weatherapi.com/v1/current.json?key=c97b2e7e2fc44f3aad0143136221712&q=Larkhall&aqi=no' | jq -r '.current.condition.text')
-    temp="$(curl -sX GET 'https://api.weatherapi.com/v1/current.json?key=c97b2e7e2fc44f3aad0143136221712&q=Larkhall&aqi=no' | jq -r '.current.temp_c' )°C"
-    weather="$condition $temp"
-    news=$(sh /home/rgilluley/Development/API/NewsAPI/getLatestHeadline.sh)
-
-    # Combine and Print
-    inisial="\e[32m$time\e[0m $weather\n$news\n"
-    echo $inisial
-}
-
+# function initialMessage () {
+#    # Time
+#    time=`date "+%D %T"`
+#
+#    # Weather
+#    condition=$(curl -sX GET 'https://api.weatherapi.com/v1/current.json?key=c97b2e7e2fc44f3aad0143136221712&q=Larkhall&aqi=no' | jq -r '.current.condition.text')
+#    temp="$(curl -sX GET 'https://api.weatherapi.com/v1/current.json?key=c97b2e7e2fc44f3aad0143136221712&q=Larkhall&aqi=no' | jq -r '.current.temp_c' )°C"
+#    weather="$condition $temp"
+#    news=$(sh /home/rgilluley/Development/API/NewsAPI/getLatestHeadline.sh)
+#
+#    # Combine and Print
+#    inisial="\e[32m$time\e[0m $weather\n$news\n"
+#    echo $inisial
+#}
 
 ### END ###
 
