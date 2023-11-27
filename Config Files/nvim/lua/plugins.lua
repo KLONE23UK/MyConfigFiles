@@ -127,3 +127,5 @@ require 'colorizer'.setup()
 cmd[[
     colorscheme tokyonight-night
 ]]
+
+-- highlight SpellBad ctermfg=white ctermbg=red guifg=white guibg=red'

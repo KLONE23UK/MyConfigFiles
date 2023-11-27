@@ -3,7 +3,7 @@ local cmd = vim.cmd
 local fn = vim.fn
 local g = vim.g
 
-cmd('syntax on')
+cmd([["syntax on"]])
 
 opt.compatible = false
 opt.number = true
@@ -19,7 +19,7 @@ opt.shiftwidth=4
 opt.numberwidth=2
 
 opt.incsearch = true
-opt.hlsearch = false
+opt.hlsearch = true
 opt.splitbelow = true
 opt.splitright = true
 opt.hidden = true

@@ -58,7 +58,7 @@ alias cat="batcat -p --paging=never $1"
 
 # Common
 # Fully Update System
-alias update="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade"
+alias update="sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && clear"
 # Compare differences in two files side by side
 alias diffy="diff -y $1 $2"
 # Count the number of files in the current directory
@@ -96,6 +96,10 @@ alias pm="python3 main.py"
 alias vim="nvim"
 # Run vim
 alias ogv="vim"
+# better fzf
+alias fzf="fzf --preview 'batcat --color=always {}' -q "
+# highlight date in calender 
+alias cal="ncal -b"
 
 ### FUNCTIONS ###
 
@@ -120,6 +124,8 @@ alias ogv="vim"
 
 # Source
 source $ZSH/oh-my-zsh.sh
+
+alias ls="exa"
 
 # Set Vim mode
 bindkey -v
