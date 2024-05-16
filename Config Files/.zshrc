@@ -7,9 +7,11 @@
 export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 export EDITOR="vim"
+export ANSIBLE_INVENTORY="$HOME/Development/Ansible/first-project/inventory"
+export ANSIBLE_PLAYBOOKS="$HOME/Development/Ansible/first-project/playbooks"
 
 # Theme
-ZSH_THEME="eastwood"
+ZSH_THEME="af-magic"
 
 # Update oh my zsh automatically
 zstyle ':omz:update' mode auto
@@ -29,6 +31,7 @@ unsetopt HIST_VERIFY
 
 plugins=(
     zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
@@ -36,11 +39,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
 
 ### PATHS ###
 
-# Set default Editor
-export EDITOR='vim'
 # Set Batcat thme
 export BAT_THEME="Sublime Snazzy"
-
+# Doom Emacs
+export PATH="$HOME/.emacs.d/bin:$PATH"
 
 ### ALIAS'S ###
 
@@ -54,11 +56,11 @@ alias trace="traceroute $1"
 alias sr="cls;source ~/.zshrc;echo \"ZSH Reloaded!\""
 # Print private ip address
 alias mip="hostname -I | awk '{print \$1}'"
-alias cat="batcat -p --paging=never $1"
+alias cat="bat -p --paging=never $1"
 
 # Common
 # Fully Update System
-alias update="sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && clear"
+alias update="sudo pacman -Syyyu && clear"
 # Compare differences in two files side by side
 alias diffy="diff -y $1 $2"
 # Count the number of files in the current directory
@@ -95,11 +97,21 @@ alias pm="python3 main.py"
 # Run nvim
 alias vim="nvim"
 # Run vim
-alias ogv="vim"
+alias ogv="/usr/bin/vim"
+
 # better fzf
 alias fzf="fzf --preview 'batcat --color=always {}' -q "
 # highlight date in calender 
 alias cal="ncal -b"
+
+alias pd="pandoc -o"
+# Open emacs in terminal
+alias emacs="emacs -nw"
+# Full shred
+alias shred="shred -uvz -n 10"
+
+## Ansible
+alias update-gcloud="ansible-playbook -i $ANSIBLE_INVENTORY $ANSIBLE_PLAYBOOKS/update_systems/update_system_apt.yml"
 
 ### END ###
 
@@ -107,7 +119,7 @@ alias cal="ncal -b"
 
 source $ZSH/oh-my-zsh.sh
 
-alias ls="exa"
+alias ls="exa --icons"
 
 # Set Vim mode
 bindkey -v
